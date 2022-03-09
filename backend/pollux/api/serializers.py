@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from accounts.serializers import UserSerializer
-from .models import Feedback, UserProfile, Message
+from .models import Feedback, UserProfile, Message, ChatRequest
 
 class FeedbackSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -21,4 +21,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Message
+		fields = '__all__'
+
+class ChatRequestSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = ChatRequest
 		fields = '__all__'

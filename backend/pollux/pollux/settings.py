@@ -53,6 +53,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'api',
+    'vc',
+    
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

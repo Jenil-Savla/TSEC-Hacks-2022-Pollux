@@ -4,9 +4,9 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-from .models import UserProfile,Message
+from .models import UserProfile,Message, ChatRequest
 from accounts.models import User
-from .serializers import FeedbackSerializer, UserProfileSerializer, MessageSerializer
+from .serializers import FeedbackSerializer, UserProfileSerializer, MessageSerializer, ChatRequestSerializer
 
 
 class FeedbackAPI(GenericAPIView):
@@ -104,6 +104,30 @@ class ProfileView(GenericAPIView):
         #stack = Stack.objects.filter(user = user)
         #stack_serializer = StackSerializer(stack, many = True)
         return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
+
+class RequestAPI(GenericAPIView):
+    serializer_class = ChatRequestSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get(self,request):
+        user = request.user
+        requests = ChatRequest.objects.filter(receiver=user)
+        serializer = self.serializer_class(requests,many = True)
+        return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
+
+    def post(self,request):
+        pk = request.query_params['reciever']
+        other_user = User.objects.get(email=pk)
+        data = request.data['accepted']
+        print(data)
+        message = ChatRequest.objects.get(sender = other_user, receiver = request.user)
+        if data == True:
+            message.accepted = True
+            message.save()
+            return JsonResponse({'link':f'{message.link}'},status = status.HTTP_200_OK, safe = False)
+        else:
+            message.delete()
+            return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
 
 class Chat(GenericAPIView):
     serializer_class = MessageSerializer
