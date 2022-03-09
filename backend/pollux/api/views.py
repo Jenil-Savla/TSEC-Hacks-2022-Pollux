@@ -102,7 +102,7 @@ class ProfileView(GenericAPIView):
         #user = profile.user
         #stack = Stack.objects.filter(user = user)
         #stack_serializer = StackSerializer(stack, many = True)
-        dict = {"personal info":f"{profile.user.first_name } {profile.user.last_name}","profile": serializer.data}
+        dict = {"personal_info":f"{profile.user.first_name } {profile.user.last_name}","profile": serializer.data}
         return JsonResponse(dict, status = status.HTTP_200_OK, safe = False)
 
 class Chat(GenericAPIView):
