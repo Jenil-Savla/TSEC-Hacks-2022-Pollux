@@ -16,6 +16,8 @@ class Profile(models.Model):
     age = models.PositiveIntegerField()
     description = models.CharField(max_length = 255)
     projects = models.CharField(max_length = 255)
+    experience = models.CharField(max_length = 255, null = True)
+    photo = models.ImageField(blank = True)
     github_link = models.URLField(null = True,blank = True)
 
     def __str__(self):
