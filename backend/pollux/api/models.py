@@ -11,7 +11,7 @@ class Feedback(models.Model):
         return self.subject
 
 class Profile(models.Model):
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
     gender = models.CharField(max_length = 10)
     age = models.PositiveIntegerField()
     description = models.CharField(max_length = 255)
@@ -21,8 +21,6 @@ class Profile(models.Model):
     photo = models.ImageField(blank = True)
     github_link = models.URLField(null = True,blank = True)
 
-    def __str__(self):
-        return self.user.username
 
 '''
 class Stack(models.Model):
