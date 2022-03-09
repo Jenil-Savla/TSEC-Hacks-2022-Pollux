@@ -1,0 +1,50 @@
+.right-box{
+    min-height: 100vh;
+    min-width: 50vw;
+    position: relative;
+    display: block;
+    background-image: url(../../assets/loginSignup.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden
+    
+}
+.left-box{
+    min-height: 100vh;
+    min-width: 50vw;
+    background-color:white;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+@media screen and (min-width: 910px) and (max-width: 1285px){
+    .left-box{
+        min-height: 100vh;
+        min-width: 50vw;
+        background-color:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media screen  and (max-width: 900px){
+    .right-box{
+        display: none;
+    }
+    .left-box{
+        justify-content: center;
+        min-width: 100vw;
+    }
+}
+@media screen and (min-width: 368px) and (max-width: 768px){
+
+    .left-box{
+        justify-content: center;
+        min-width: 100vh;
+    }
+    
+}
