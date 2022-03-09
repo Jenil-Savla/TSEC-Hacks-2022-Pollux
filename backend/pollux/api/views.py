@@ -4,9 +4,9 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Profile,Message, Stack
+from .models import Profile,Message
 from accounts.models import User
-from .serializers import FeedbackSerializer, ProfileSerializer, MessageSerializer, StackSerializer
+from .serializers import FeedbackSerializer, ProfileSerializer, MessageSerializer
 
 
 class FeedbackAPI(GenericAPIView):
@@ -50,7 +50,8 @@ class ProfileAPI(GenericAPIView):
         user = request.user
         profile = Profile.objects.get(user = user)
         profile.delete()
-    
+
+'''  
 class StackAPI(GenericAPIView):
     serializer_class = StackSerializer
     permission_classes = [IsAuthenticated,]
@@ -80,7 +81,7 @@ class StackAPI(GenericAPIView):
     def delete(self,request):
         user = request.user
         stack = Stack.objects.get(user = user)
-        stack.delete()
+        stack.delete()'''
 
 class ProfileList(GenericAPIView):
     serializer_class = ProfileSerializer

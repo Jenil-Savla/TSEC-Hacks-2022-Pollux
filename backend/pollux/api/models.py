@@ -24,12 +24,13 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+'''
 class Stack(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
     stack = models.CharField(max_length = 40)
 
     def __str__(self):
-        return self.stack
+        return self.stack'''
 
 class Message(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "msg_sender", on_delete=models.CASCADE)
