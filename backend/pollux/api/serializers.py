@@ -16,7 +16,7 @@ class StackSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = UserProfile
-		fields = ['gender','age','stack','description','projects','experience','photo','github_link']
+		fields = '__all__'
 
 class MessageSerializer(serializers.ModelSerializer):
 	class Meta:

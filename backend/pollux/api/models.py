@@ -12,6 +12,7 @@ class Feedback(models.Model):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
+    name = models.CharField(max_length = 50, null = True)
     gender = models.CharField(max_length = 10)
     age = models.PositiveIntegerField()
     description = models.CharField(max_length = 255)
@@ -23,21 +24,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-        
-class Profile(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
-    gender = models.CharField(max_length = 10)
-    age = models.PositiveIntegerField()
-    description = models.CharField(max_length = 255)
-    stack = models.CharField(max_length=50)
-    projects = models.CharField(max_length = 255)
-    experience = models.CharField(max_length = 255, null = True)
-    photo = models.ImageField(blank = True)
-    github_link = models.URLField(null = True,blank = True)
-
-    def __str__(self):
-        return self.user.username
-
 
 '''
 class Stack(models.Model):
