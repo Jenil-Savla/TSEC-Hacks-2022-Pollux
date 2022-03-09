@@ -127,7 +127,7 @@ class RequestAPI(GenericAPIView):
             return JsonResponse({'link':f'{message.link}'},status = status.HTTP_200_OK, safe = False)
         else:
             message.delete()
-            return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
+            return JsonResponse({'rejected':'rejected'}, status = status.HTTP_200_OK, safe = False)
 
 class Chat(GenericAPIView):
     serializer_class = MessageSerializer
@@ -148,4 +148,16 @@ class Chat(GenericAPIView):
         data = request.data['message']
         message = Message.objects.create(sender = request.user, receiver = other_user, message = data)
         message.save()
+        return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
+
+class CreateRequest(GenericAPIView):
+    serializer_class = ChatRequestSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def post(self,request):
+        pk = request.query_params['reciever']
+        other_user = User.objects.get(email=pk)
+        request = ChatRequest.objects.create(sender = request.user, receiver = other_user, link = 'www.chat.com')
+        request.save()
+        serializer = self.serializer_class(request)
         return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
