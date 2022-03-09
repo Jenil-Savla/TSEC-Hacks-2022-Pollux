@@ -8,4 +8,5 @@ urlpatterns = [
     path('profile-view/<str:pk>', views.ProfileView.as_view(),name = 'profile-view'),
     path('load-messages',views.Chat.as_view(),name = 'load-messages'),
     path('chat-request',views.RequestAPI.as_view(),name = 'chat-request'),
+    path('create-request',views.CreateRequest.as_view(),name = ' create-request')
 ]

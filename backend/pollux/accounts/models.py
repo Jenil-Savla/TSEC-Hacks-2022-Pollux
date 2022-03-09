@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from rest_framework.authtoken.models import Token
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class UserManager(BaseUserManager):
     """
@@ -36,7 +37,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     email = models.EmailField(("Email Address"),primary_key=True)
-    phone = models.BigIntegerField(default=976934295)
+    phone = models.BigIntegerField(default=976934295,validators=[MinValueValidator(10000000000), MaxValueValidator(1000000000)])
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS=[]
