@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from accounts.serializers import UserSerializer
-from .models import Feedback, Profile, Message
+from .models import Feedback, UserProfile, Message
 
 class FeedbackSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -15,7 +15,7 @@ class StackSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Profile
+		model = UserProfile
 		fields = ['gender','age','stack','description','projects','experience','photo','github_link']
 
 class MessageSerializer(serializers.ModelSerializer):

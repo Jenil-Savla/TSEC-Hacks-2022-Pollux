@@ -28,6 +28,7 @@ class ProfileAPI(GenericAPIView):
     def get(self,request):
         user = request.user
         profile = UserProfile.objects.get(user = user)
+        serializer = self.serializer_class(profile)
         return JsonResponse(profile, status = status.HTTP_200_OK, safe = False)
 
     def post(self,request):
