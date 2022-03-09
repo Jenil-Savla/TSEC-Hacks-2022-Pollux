@@ -63,7 +63,7 @@ export default function Login()
           console.log(result);
           if (result.token && result.username) {
             localStorage.setItem('token', JSON.stringify(result.token))
-            localStorage.setItem('username', JSON.stringify(result.username))
+            localStorage.setItem('name', JSON.stringify(result.name))
             setToken(result.token);
               //alert("hua")
             navigate("/home");

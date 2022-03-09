@@ -1,0 +1,17 @@
+.homepage-body{
+    min-height: 100vh;
+    min-width: 90vw;
+    content: ' ';
+    position: relative;
+    display: block;
+    background-image: url(../../assets/homePage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden
+}
+.root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}

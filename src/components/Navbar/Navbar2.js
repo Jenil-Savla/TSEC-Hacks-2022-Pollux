@@ -104,7 +104,7 @@ const Navbar = () => {
             component="div"
             fontFamily="Anonymous Pro"
             fontSize="50px"
-            sx={{ display: { xs: "none", md: "flex", color:"black" } }}
+            sx={{ display: { xs: "none", md: "flex", color:"white" } }}
           >
             WebDevPros
           </Typography>
@@ -156,17 +156,11 @@ const Navbar = () => {
           >
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-             <TextField
-              id="search"
-              variant="outlined"
-              fullWidth
-              // InputProps={{
-              //   className: classes.colour
-              // }}
-              label={<BsSearch size= {28}/>}
-              style={{marginRight: "50px", marginLeft: "290px", input:{color:'red'}}}
-              
-        />
+          <div style={{ margin: "auto" }}>
+              <Link className="headerLinks" to="/home">
+                <button className="btn">Home</button>
+              </Link>
+          </div>
           </Box>
           <Avatar
         alt="Remy Sharp"
