@@ -13,7 +13,7 @@ class StackSerializer(serializers.ModelSerializer):
 		model = Stack
 		fields = ['stack',]'''
 
-class ProfileSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Profile
 		fields = '__all__'

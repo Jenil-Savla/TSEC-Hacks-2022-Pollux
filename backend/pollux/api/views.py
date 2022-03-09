@@ -4,9 +4,9 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Profile,Message
+from .models import UserProfile,Message
 from accounts.models import User
-from .serializers import FeedbackSerializer, ProfileSerializer, MessageSerializer
+from .serializers import FeedbackSerializer, UserProfileSerializer, MessageSerializer
 
 
 class FeedbackAPI(GenericAPIView):
@@ -22,12 +22,12 @@ class FeedbackAPI(GenericAPIView):
         return JsonResponse(serializer.errors, status = status.HTTP_406_NOT_ACCEPTABLE, safe = False)
 
 class ProfileAPI(GenericAPIView):
-    serializer_class = ProfileSerializer
+    serializer_class = UserProfileSerializer
     permission_classes = [IsAuthenticated,]
 
     def get(self,request):
         user = request.user
-        profile = Profile.objects.get(user = user)
+        profile = UserProfile.objects.get(user = user)
         return JsonResponse(profile, status = status.HTTP_200_OK, safe = False)
 
     def post(self,request):
@@ -48,7 +48,7 @@ class ProfileAPI(GenericAPIView):
 
     def delete(self,request):
         user = request.user
-        profile = Profile.objects.get(user = user)
+        profile = UserProfile.objects.get(user = user)
         profile.delete()
 
 '''  
@@ -84,20 +84,20 @@ class StackAPI(GenericAPIView):
         stack.delete()'''
 
 class ProfileList(GenericAPIView):
-    serializer_class = ProfileSerializer
+    serializer_class = UserProfileSerializer
     permission_classes = [IsAuthenticated,]
 
     def get(self,request):
-        profiles = Profile.objects.all()
+        profiles = UserProfile.objects.all()
         serializer = self.serializer_class(profiles, many = True)
         return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
 
 class ProfileView(GenericAPIView):
-    serializer_class = ProfileSerializer
+    serializer_class = UserProfileSerializer
     permission_classes = [IsAuthenticated,]
 
     def get(self,request,pk):
-        profile = Profile.objects.get(id=pk)
+        profile = UserProfile.objects.get(id=pk)
         serializer = self.serializer_class(profile)
         #user = profile.user
         #stack = Stack.objects.filter(user = user)
