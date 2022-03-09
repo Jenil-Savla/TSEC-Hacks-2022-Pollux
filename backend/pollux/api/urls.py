@@ -7,4 +7,5 @@ urlpatterns = [
     path('profile-list/', views.ProfileList.as_view(),name = 'profile-list'),
     path('profile-view/<str:pk>', views.ProfileView.as_view(),name = 'profile-view'),
     path('stack/',views.StackAPI.as_view(),name = 'stack'),
+    path('load-messages',views.Chat.as_view(),name = 'load-messages')
 ]

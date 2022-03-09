@@ -1,11 +1,13 @@
+from django.dispatch import receiver
 from django.http import JsonResponse
 from rest_framework.generics import GenericAPIView
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Profile,Message, Stack
-
+from accounts.models import User
 from .serializers import FeedbackSerializer, ProfileSerializer, MessageSerializer, StackSerializer
+
 
 class FeedbackAPI(GenericAPIView):
     serializer_class = FeedbackSerializer
@@ -96,8 +98,29 @@ class ProfileView(GenericAPIView):
     def get(self,request,pk):
         profile = Profile.objects.get(id=pk)
         serializer = self.serializer_class(profile)
-        user = profile.user
-        stack = Stack.objects.filter(user = user)
-        stack_serializer = StackSerializer(stack, many = True)
-        dict = {"profile": serializer.data, "stacks": stack_serializer.data}
-        return JsonResponse(dict, status = status.HTTP_200_OK, safe = False)
+        #user = profile.user
+        #stack = Stack.objects.filter(user = user)
+        #stack_serializer = StackSerializer(stack, many = True)
+        #dict = {"profile": serializer.data, "stacks": stack_serializer.data}
+        return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
+
+class Chat(GenericAPIView):
+    serializer_class = MessageSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get(self,request):
+        pk = request.query_params['reciever']
+        other_user = User.objects.get(email=pk)
+        messages = Message.objects.filter(receiver = request.user, sender = other_user)
+        messages.update(seen = True)
+        messages = messages | Message.objects.filter(receiver = other_user, sender = request.user)
+        serializer = self.serializer_class(messages,many = True)
+        return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
+
+    def post(self,request):
+        pk = request.query_params['reciever']
+        other_user = User.objects.get(email=pk)
+        data = request.data['message']
+        message = Message.objects.create(sender = request.user, receiver = other_user, message = data)
+        message.save()
+        return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)

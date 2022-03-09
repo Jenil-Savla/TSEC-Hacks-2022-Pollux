@@ -34,7 +34,9 @@ class Message(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "msg_sender", on_delete=models.CASCADE)
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "msg_reciever", on_delete=models.CASCADE)
     message = models.CharField(max_length = 255)
+    stack = models.CharField(max_length = 255)
     file = models.FileField(null = True)
+    seen = models.BooleanField(default = False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
