@@ -46,6 +46,8 @@ class Message(models.Model):
 
 class ChatRequest(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "req_sender", on_delete=models.CASCADE)
+    name = models.CharField(max_length = 50,null = True)
+    sender_stack = models.CharField(max_length = 50, null = True)
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "req_reciever", on_delete=models.CASCADE)
     accepted = models.BooleanField(default=False)
     link = models.URLField(null=True)

@@ -111,7 +111,7 @@ class RequestAPI(GenericAPIView):
 
     def get(self,request):
         user = request.user
-        requests = ChatRequest.objects.filter(receiver=user)
+        requests = ChatRequest.objects.filter(receiver=user, accepted = False)
         serializer = self.serializer_class(requests,many = True)
         return JsonResponse(serializer.data, status = status.HTTP_200_OK, safe = False)
 
@@ -157,7 +157,8 @@ class CreateRequest(GenericAPIView):
     def post(self,request):
         pk = request.query_params['reciever']
         other_user = User.objects.get(email=pk)
-        request = ChatRequest.objects.create(sender = request.user, receiver = other_user, link = 'www.chat.com')
+        profile = UserProfile.objects.get(user = request.user)
+        request = ChatRequest.objects.create(sender = request.user, receiver = other_user, link = 'www.chat.com', sender_stack = profile.stack, name = profile.name)
         request.save()
         serializer = self.serializer_class(request)
         return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
