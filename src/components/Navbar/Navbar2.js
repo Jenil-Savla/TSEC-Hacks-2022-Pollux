@@ -28,7 +28,6 @@ const useStyles = makeStyles(() => ({
     color: "#696969 !important",
   },
 }));
-
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -104,7 +103,7 @@ const Navbar = () => {
             component="div"
             fontFamily="Anonymous Pro"
             fontSize="50px"
-            sx={{ display: { xs: "none", md: "flex", color:"white" } }}
+            sx={{ display: { xs: "none", md: "flex", color:"black" } }}
           >
             WebDevPros
           </Typography>
@@ -157,9 +156,7 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           <div style={{ margin: "auto" }}>
-              <Link className="headerLinks" to="/home">
-                <button className="btn">Home</button>
-              </Link>
+              
           </div>
           </Box>
           <Avatar

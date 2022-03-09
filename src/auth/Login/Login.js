@@ -62,8 +62,8 @@ export default function Login()
           result = await result.json();
           console.log(result);
           if (result.token && result.username) {
-            localStorage.setItem('token', JSON.stringify(result.token))
-            localStorage.setItem('name', JSON.stringify(result.name))
+            localStorage.setItem('token', result.token)
+            localStorage.setItem('name', result.name)
             setToken(result.token);
               //alert("hua")
             navigate("/home");
@@ -83,7 +83,7 @@ export default function Login()
         animate={{ x: 0 }}
         maxWidth="xs"
       >
-        <Typography component="h1" variant="h5" style={{ textAlign: "center",  fontFamily:"Anonymous Pro" }}>
+        <Typography component="h1" variant="h4" style={{ textAlign: "center",  fontFamily:"Anonymous Pro", marginBottom: "15px" }}>
           Login
         </Typography>
         <Box
@@ -126,18 +126,18 @@ export default function Login()
             type="submit"
             
             variant="contained"
-            sx={{ mt: 5, mb: 7, ml:23 }}
+            sx={{ mt: 7, mb: 6, ml:23 }}
             style={{
-              backgroundColor: "#D1CACA",
-              color: "black",
+              backgroundColor: "blue",
+              color: "white",
               fontWeight: "bold",
               fontSize: "18px",
             }}
           >
             Login
           </Button>
-          <Typography variant="h5" textAlign="center"  fontFamily="Anonymous Pro">Don't have an Account? 
-          <Link to="/signup" style={{textDecoration: "none", marginLeft: "5px",  fontFamily:"Anonymous Pro"}}>
+          <Typography textAlign="center"  fontSize="1.4rem" fontFamily="Anonymous Pro">Don't have an Account? 
+          <Link to="/signup" style={{textDecoration: "none", color: "blue", marginLeft: "5px",  fontFamily:"Anonymous Pro"}}>
              Signup
           </Link>
           </Typography>

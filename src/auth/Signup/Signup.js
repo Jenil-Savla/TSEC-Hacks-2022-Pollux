@@ -92,7 +92,7 @@ import {
           animate={{ x: 0 }}
           maxWidth="xs"
         >
-          <Typography component="h1" variant="h5" style={{ textAlign: "center", fontFamily:"Anonymous Pro" }}>
+          <Typography component="h1" variant="h4" style={{ textAlign: "center", fontFamily:"Anonymous Pro" }}>
             Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -192,11 +192,10 @@ import {
             <Button
               type="submit"
               variant="contained"
-              sx={{ mt: 2, mb:7, ml:23 }}
+              sx={{ mt: 2, mb:4, ml:18 }}
               style={{
-                backgroundColor: "#D1CACA",
-                fontFamily:"Anonymous Pro",
-                color: "black",
+                backgroundColor: "blue",
+                color: "white",
                 fontWeight: "bold",
                 fontSize: "18px",
               }}
@@ -204,7 +203,7 @@ import {
               Sign Up
             </Button>
             <Typography variant="h5" textAlign="center"  fontFamily="Anonymous Pro">Already have an Account?  
-            <Link to="/login" style={{textDecoration: "none", marginLeft: "5px",  fontFamily:"Anonymous Pro"}}>
+            <Link to="/login" style={{textDecoration: "none", color: "blue", marginLeft: "5px",  fontFamily:"Anonymous Pro"}}>
                Login
             </Link>
             </Typography>

@@ -42,7 +42,7 @@ header {
   }
   
   .navBar Button {
-    background-color: #e8e8cc;
+    background-color: #0000FF;
     /* margin-left: 10px; */
     font-size: 1rem;
     font-weight: 700;
@@ -56,7 +56,7 @@ header {
   }
   
   .btn {
-    background-color: #e8e8cc98;
+    background-color: "blue";
     font-family: "Source Serif 4", sans-serif;
     font-weight: 800;
     border: 3px solid transparent;

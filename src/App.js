@@ -4,7 +4,7 @@ import SignupPage from './pages/LoginSignup/SignupPage';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage/HomePage';
 import Profile from './pages/Profile/Profile';
-
+import UserProfile from './pages/UserProfile/UserProfile';
 
 function App() {
   return (
@@ -44,6 +44,15 @@ function App() {
             element={
               <>
               <Profile />
+              </>
+            }
+            />
+            <Route
+            exact
+            path="/profileuser"
+            element={
+              <>
+              <UserProfile />
               </>
             }
             />

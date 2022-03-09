@@ -103,7 +103,7 @@ const Navbar = () => {
             noWrap
             component="div"
             fontFamily="Anonymous Pro"
-            fontSize="50px"
+            fontSize={65}
             sx={{ display: { xs: "none", md: "flex", color:"black" } }}
           >
             WebDevPros
@@ -159,12 +159,11 @@ const Navbar = () => {
              <TextField
               id="search"
               variant="outlined"
-              fullWidth
               // InputProps={{
               //   className: classes.colour
               // }}
               label={<BsSearch size= {28}/>}
-              style={{marginRight: "50px", marginLeft: "290px", input:{color:'red'}}}
+              style={{marginLeft: "600px", width: "400px"}}
               
         />
           </Box>
