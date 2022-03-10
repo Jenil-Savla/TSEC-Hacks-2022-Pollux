@@ -8,7 +8,7 @@ const Welcome = () => {
   return (
     <div>
       <Grid container display="flex" flexDirection="column" alignItems="center" className="welcome-grid">
-        <Typography variant="h1" textAlign="center" marginTop="250px">
+        <Typography variant="h1" textAlign="center" marginTop="250px" fontFamily="Anonymous Pro">
           CatCollab
         </Typography>
 
@@ -23,6 +23,7 @@ const Welcome = () => {
               marginLeft: 400,
               marginRight: 400,
               justifyContent: "center",
+              fontFamily:"Anonymous Pro"
             }}
           >
             Lorem Ipsum is simply dummy text of the printing and typesetting
