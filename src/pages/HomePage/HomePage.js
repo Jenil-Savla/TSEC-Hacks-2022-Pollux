@@ -110,7 +110,7 @@ export default function HomePage() {
                 </Grid>
               );
             })}
-            ;
+            
           </Grid>
         </div>
       </Grid>

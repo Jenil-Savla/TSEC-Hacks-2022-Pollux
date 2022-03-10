@@ -1,12 +1,9 @@
 .right-box{
     min-height: 100vh;
     min-width: 50vw;
-    position: relative;
-    display: block;
-    background-image: url(../../assets/loginSignup.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow:hidden
+    display: "flex";
+    justify-content:"flex-end";
+    align-items:"flex-end";
     
 }
 .left-box{

@@ -73,8 +73,8 @@ export default function Profile() {
       <Grid container className="profile-body">
         <Navbar2 />
         <div className="root">
-          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "grey", height: "140vh", width: "70vw", marginLeft: "200px", marginRight:"180px"}}>
-          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "white", height: "120vh", width: "60vw"}}>
+          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "white", height: "140vh", width: "70vw", marginLeft: "200px", marginRight:"180px"}}>
+          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "offwhite", height: "120vh", width: "60vw", borderRadius:"25px", boxShadow:"5px 5px 3px 2px"}}>
           <Grid
             container
             display="flex"
@@ -99,7 +99,7 @@ export default function Profile() {
                   style={{ marginTop: "20px", marginLeft: "36px" }}
                 >
                   <Typography style={{ fontSize: "30px", marginTop: "30px" }}>
-                  Create a Member Log
+                  Create Your Profile
                   </Typography>
                 </Grid>
                 <Box

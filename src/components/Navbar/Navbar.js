@@ -167,11 +167,12 @@ const Navbar = () => {
               
         />
           </Box>
+          <Link to="/profile" style={{textDecoration:"none"}}>
           <Avatar
         alt="Remy Sharp"
         src="/static/images/avatar/1.jpg"
         sx={{ width: 56, height: 56 }}
-      />
+      /></Link>
         </Toolbar>
       </Container>
     </AppBar>
