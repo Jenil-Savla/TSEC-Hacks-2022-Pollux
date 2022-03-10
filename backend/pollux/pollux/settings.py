@@ -15,8 +15,8 @@ import os
 
 import django_heroku
 
-import dotenv
-dotenv.load_dotenv()
+#import dotenv
+#dotenv.load_dotenv()
 
 import environ
 
