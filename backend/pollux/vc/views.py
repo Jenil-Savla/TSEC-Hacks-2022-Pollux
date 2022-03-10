@@ -11,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from .agora_key.RtcTokenBuilder import RtcTokenBuilder, Role_Attendee
-from pusher import Pusher
 
 import environ
 
