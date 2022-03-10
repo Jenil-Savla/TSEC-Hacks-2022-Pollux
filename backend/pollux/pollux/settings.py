@@ -53,11 +53,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     'corsheaders',
-    #'channels',
 
     'accounts',
     'api',
-    #'vc',
+    'vc',
     
 ]
 
