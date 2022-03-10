@@ -3,6 +3,8 @@
 *.pyc
 _pycache_/
 local_settings.py
+staticfiles
+vc
 # Environments
 .virtualenv
 virtualenv/
