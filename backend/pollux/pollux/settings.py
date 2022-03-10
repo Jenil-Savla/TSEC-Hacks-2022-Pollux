@@ -15,6 +15,9 @@ import os
 
 import django_heroku
 
+import dotenv
+dotenv.load_dotenv()
+
 import environ
 
 env = environ.Env()
@@ -148,13 +151,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT  =   os.path.join(BASE_DIR, 'staticfiles/media')
+MEDIA_ROOT  =  os.path.join(BASE_DIR, 'staticfiles/media')
 MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''ASGI_APPLICATION = 'routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [(6379)],
+        },
+    },
+}'''
+
+'''CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": [(6379)],
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        }
+    }
+}'''
 
 django_heroku.settings(locals())

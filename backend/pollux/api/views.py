@@ -119,8 +119,7 @@ class RequestAPI(GenericAPIView):
         pk = request.query_params['reciever']
         other_user = User.objects.get(email=pk)
         data = request.data['accepted']
-        print(data)
-        message = ChatRequest.objects.get(sender = other_user, receiver = request.user)
+        message = ChatRequest.objects.get(sender = other_user, receiver = request.user,accepted = False)
         if data == True:
             message.accepted = True
             message.save()
