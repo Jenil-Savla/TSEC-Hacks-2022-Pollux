@@ -67,7 +67,7 @@ export default function HomePage() {
                         sx={{
                           display: "flex",
                           width: "40vw",
-                          backgroundColor: "#C4C4C4",
+                          backgroundColor: "#d0f0f5",
                       
                         }}
                       >
