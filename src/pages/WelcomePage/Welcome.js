@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../../App.css'
 import Button from "@mui/material/Button";
 import { Typography, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const Welcome = () => {
   return (
     <div>
-      <Grid container display="flex" flexDirection="column" alignItems="center">
-        <Typography variant="h1" textAlign="center" marginTop="100px">
+      <Grid container display="flex" flexDirection="column" alignItems="center" className="welcome-grid">
+        <Typography variant="h1" textAlign="center" marginTop="250px">
           CatCollab
         </Typography>
 

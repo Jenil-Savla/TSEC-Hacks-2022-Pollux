@@ -1,2 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+.welcome-grid{
+    min-height: 100vh;
+    min-width: 100vw;
+    content: ' ';
+    position: relative;
+    display: block;
+    background-image: url(./assets//welcome.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden
+}

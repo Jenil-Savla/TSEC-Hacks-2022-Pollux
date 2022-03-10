@@ -4,7 +4,7 @@
     content: ' ';
     position: relative;
     display: block;
-    /* background-image: url(../../assets/homePage.jpg); */
+    background-image: url(../../assets/home.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     overflow:hidden

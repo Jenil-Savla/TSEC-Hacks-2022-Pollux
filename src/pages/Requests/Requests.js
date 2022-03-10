@@ -40,6 +40,9 @@ const Requests = () => {
   const handleDecline = (sender) => {
     deleteReq(sender);
   };
+  const handleAccept = (sender) => {
+    acceptReq(sender);
+  };
 
   async function deleteReq(sender) {
     //console.log("hello");
@@ -48,6 +51,29 @@ const Requests = () => {
       method: "POST",
       body: JSON.stringify({
         accepted: false,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "*/*",
+        Authorization: "Token " + token,
+      },
+    });
+    try {
+      result = await result.json();
+      console.log(result);
+    } catch (error) {
+      console.log("Error" + error);
+      //alert("nahi hua")
+    }
+  }
+
+  async function acceptReq(sender) {
+    //console.log("hello");
+     //console.log(card.sender);
+    let result = await fetch(URL + `api/chat-request?reciever=${sender}`, {
+      method: "POST",
+      body: JSON.stringify({
+        accepted: true,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +107,8 @@ const Requests = () => {
                     <Typography variant="body1">{card.sender_stack}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" sx={{ color: "blue", fontWeight: 50 }}>
+                    <Button size="small" sx={{ color: "blue", fontWeight: 50 }}
+                    onClick={()=>{handleAccept(card.sender)}}>
                       Accept
                     </Button>
                     <Button

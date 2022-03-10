@@ -75,7 +75,7 @@ export default function Profile() {
         <Navbar2 />
         <div className="root">
     
-          <Grid container display="flex" justifyContent="flex-end" alignItems="end" style={{backgroundColor: "offwhite", height: "120vh", width: "40vw", borderRadius:"25px", marginLeft:"90px", boxShadow:"5px 5px 3px 2px"}}>
+          <Grid container display="flex" justifyContent="flex-end" alignItems="end" style={{backgroundColor: "offwhite", height: "120vh", width: "40vw", borderRadius:"25px", marginLeft:"460px", backgroundColor:"#d0f0f5"}}>
           <Grid
             container
             display="flex"

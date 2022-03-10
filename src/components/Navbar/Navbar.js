@@ -107,7 +107,7 @@ const Navbar = () => {
             fontSize={65}
             sx={{ display: { xs: "none", md: "flex", color:"black" } }}
           >
-            WebDevPros
+            CatCollab
           </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

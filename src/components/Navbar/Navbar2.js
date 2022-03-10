@@ -106,7 +106,7 @@ const Navbar = () => {
             fontSize="50px"
             sx={{ display: { xs: "none", md: "flex", color:"black" } }}
           >
-            WebDevPros
+            CatCollab
           </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -160,6 +160,7 @@ const Navbar = () => {
               
           </div>
           </Box>
+          <Link to="/requests" style={{textDecoration:"none"}}><Typography variant="h5" style={{fontFamily:"Anonymous Pro", marginRight:"30px"}}>View My Requests</Typography></Link>
           <Link to="/profile" style={{textDecoration:"none"}}>
           <Avatar
         alt="Remy Sharp"

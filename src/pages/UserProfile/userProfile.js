@@ -5,6 +5,7 @@ import { URL } from "../../utils/Api";
 import { GlobalContext } from "../../context/GlobalContext";
 import Navbar2 from "../../components/Navbar/Navbar2";
 import "./userProfile.css";
+import  swal  from "sweetalert2";
 
 export default function UserProfile() {
 
@@ -55,7 +56,13 @@ export default function UserProfile() {
       );
       try{
       result = await result.json();
-      console.log(result);
+      console.log(result.sent);
+     if(result.sent){
+      swal.fire(
+        'Request Sent',
+        'success'
+      )
+     }
       }
      catch (error) {
       console.log("Error" + error);
@@ -65,26 +72,27 @@ export default function UserProfile() {
   return (
     <>
       <Navbar2 />
+      <Grid container className="profile-grid">
       <div className="root">
-        <Grid
+        {/* <Grid
           container
           display="flex"
           justifyContent="center"
           alignItems="center"
           style={{
-            backgroundColor: "grey",
+            backgroundColor: "white",
             height: "100vh",
             width: "180vw",
             marginLeft: "200px",
             marginRight: "180px",
           }}
-        >
+        > */}
           <Grid
             container
             display="flex"
             justifyContent="center"
             alignItems="center"
-            style={{ backgroundColor: "white", height: "80vh", width: "60vw" }}
+            style={{ backgroundColor: "#d0f0f5", paddingLeft:"10px", height: "85vh", width: "40vw", borderTopRightRadius:"30px", borderBottomLeftRadius:"30px" }}
           >
             <Grid
               container
@@ -106,7 +114,8 @@ export default function UserProfile() {
                       variant="h4"
                       fontFamily="Anonymous Pro"
                       padding={2}
-                      style={{ marginBottom: "20px", marginRight: "180px" }}
+                      
+                      style={{ marginBottom: "20px", marginRight: "180px", marginLeft:"140px" }}
                     >
                       {card.name}'s Profile
                     </Typography>
@@ -114,6 +123,7 @@ export default function UserProfile() {
                       variant="h5"
                       fontFamily="Anonymous Pro"
                       padding={2}
+                      marginLeft="140px"
                     >
                       <span>Age: {card.age}</span>{" "}
                       <span> Gender: {card.gender}</span>
@@ -122,6 +132,7 @@ export default function UserProfile() {
                       variant="h5"
                       fontFamily="Anonymous Pro"
                       padding={2}
+                      marginLeft="140px"
                     >
                       {card.description}
                     </Typography>
@@ -129,6 +140,7 @@ export default function UserProfile() {
                       variant="h5"
                       fontFamily="Anonymous Pro"
                       padding={2}
+                      marginLeft="140px"
                     >
                       Stacks: {card.stack}
                     </Typography>
@@ -136,6 +148,7 @@ export default function UserProfile() {
                       variant="h5"
                       fontFamily="Anonymous Pro"
                       padding={2}
+                      marginLeft="140px"
                     >
                       Projects: {card.projects}
                     </Typography>
@@ -143,6 +156,7 @@ export default function UserProfile() {
                       variant="h5"
                       fontFamily="Anonymous Pro"
                       padding={2}
+                      marginLeft="140px"
                     >
                       Experience: {card.experience}
                     </Typography>
@@ -153,6 +167,7 @@ export default function UserProfile() {
                     variant="h5"
                     fontFamily="Anonymous Pro"
                     padding={2}
+                    marginLeft="140px"
                   >
                     Github Link:{" "}
                     <Link to={`/{card.github_link}`}>{card.github_link}</Link>
@@ -170,8 +185,9 @@ export default function UserProfile() {
               </div>
             </Grid>
           </Grid>
-        </Grid>
+        {/* </Grid> */}
       </div>
+      </Grid>
     </>
   );
 }
