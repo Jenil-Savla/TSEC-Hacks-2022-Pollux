@@ -130,9 +130,5 @@ class CreateRequest(GenericAPIView):
         request = ChatRequest.objects.create(sender = request.user, receiver = other_user, link = 'https://us05web.zoom.us/j/87318565751?pwd=ZG1FcDlYWjlrcUxhVWkvaStFaFRadz09', sender_stack = profile.stack, name = profile.name)
         request.save()
         data = {'email_body': f'Thank you for accepting my invitation to collaborate. Here is the link {link}. The password is Syitj7', 'subject':'CatCollab Invitation', 'to' : other_user.email}
-        try:
-            send_email(data)
-        except Exception as e:
-            print(e)
         serializer = self.serializer_class(request)
         return JsonResponse({'sent':'sent'}, status = status.HTTP_200_OK, safe = False)
