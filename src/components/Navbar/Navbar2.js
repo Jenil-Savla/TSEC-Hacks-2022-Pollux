@@ -97,6 +97,7 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <Link to="/home" style={{cursor:"pointer", textDecoration:"none"}}>
           <Typography
             variant="h6"
             noWrap
@@ -107,7 +108,7 @@ const Navbar = () => {
           >
             WebDevPros
           </Typography>
-
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <React.Fragment key={anchor}>
               <Button

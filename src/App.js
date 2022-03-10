@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginSignup/LoginPage';
 import SignupPage from './pages/LoginSignup/SignupPage';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage/HomePage';
+import Welcome from './pages/WelcomePage/Welcome';
 import Profile from './pages/Profile/Profile';
 import UserProfile from './pages/UserProfile/UserProfile';
 import Requests from './pages/Requests/Requests';
@@ -63,6 +64,15 @@ function App() {
             element={
               <>
               <Requests />
+              </>
+            }
+            />
+            <Route
+            exact
+            path="/"
+            element={
+              <>
+              <Welcome />
               </>
             }
             />

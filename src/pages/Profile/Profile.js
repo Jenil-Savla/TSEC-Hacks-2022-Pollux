@@ -4,6 +4,7 @@ import { Grid, Typography, FilledInput, Button, Box } from "@mui/material";
 import { useState, useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
+import create from '../../assets/create.png';
 
 export default function Profile() {
   // const { token } = useContext(GlobalContext);
@@ -73,8 +74,8 @@ export default function Profile() {
       <Grid container className="profile-body">
         <Navbar2 />
         <div className="root">
-          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "white", height: "140vh", width: "70vw", marginLeft: "200px", marginRight:"180px"}}>
-          <Grid container display="flex" justifyContent="center" alignItems="center" style={{backgroundColor: "offwhite", height: "120vh", width: "60vw", borderRadius:"25px", boxShadow:"5px 5px 3px 2px"}}>
+    
+          <Grid container display="flex" justifyContent="flex-end" alignItems="end" style={{backgroundColor: "offwhite", height: "120vh", width: "40vw", borderRadius:"25px", marginLeft:"90px", boxShadow:"5px 5px 3px 2px"}}>
           <Grid
             container
             display="flex"
@@ -293,7 +294,7 @@ export default function Profile() {
             </div>
           </Grid>
           </Grid>
-          </Grid>
+        
         </div>
 
       </Grid>
